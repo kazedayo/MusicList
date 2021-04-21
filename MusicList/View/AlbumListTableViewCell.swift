@@ -10,6 +10,8 @@ import SnapKit
 
 class AlbumListTableViewCell: UITableViewCell {
     
+    static let identifier = "albumListTableViewCell"
+    
     lazy var albumArtImageView = UIImageView()
     lazy var albumNameLabel = UILabel()
     lazy var artistNameLabel = UILabel()
@@ -27,24 +29,28 @@ class AlbumListTableViewCell: UITableViewCell {
         //album art
         contentView.addSubview(albumArtImageView)
         albumArtImageView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(contentView).offset(8)
-            make.height.equalTo(60)
-            make.width.equalTo(60)
-            make.top.equalTo(contentView).offset(8)
-            make.bottom.equalTo(contentView).offset(-8)
+            make.left.equalTo(16)
+            make.size.equalTo(100)
+            make.top.equalTo(16)
+            make.bottom.equalTo(-16).priority(.low)
         }
         
         //album name
+        albumNameLabel.numberOfLines = 0
         contentView.addSubview(albumNameLabel)
         albumNameLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(albumArtImageView)
-            make.left.equalTo(albumArtImageView).offset(4)
+            make.left.equalTo(albumArtImageView.snp.right).offset(16)
+            make.right.equalTo(-16)
         }
-        
+
         //artist name
-        contentView.snp.makeConstraints { (make) -> Void in
-            make.bottom.equalTo(albumArtImageView)
+        artistNameLabel.numberOfLines = 0
+        contentView.addSubview(artistNameLabel)
+        artistNameLabel.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(contentView).offset(-16)
             make.left.equalTo(albumNameLabel)
+            make.right.equalTo(-16)
         }
     }
 

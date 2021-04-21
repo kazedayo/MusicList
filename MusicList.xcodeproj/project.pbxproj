@@ -10,7 +10,6 @@
 		42C0166E263036A500F288F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0166D263036A500F288F2 /* AppDelegate.swift */; };
 		42C01670263036A500F288F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0166F263036A500F288F2 /* SceneDelegate.swift */; };
 		42C01672263036A500F288F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C01671263036A500F288F2 /* ViewController.swift */; };
-		42C01675263036A500F288F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42C01673263036A500F288F2 /* Main.storyboard */; };
 		42C01677263036A600F288F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C01676263036A600F288F2 /* Assets.xcassets */; };
 		42C0167A263036A600F288F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42C01678263036A600F288F2 /* LaunchScreen.storyboard */; };
 		42C01684263036DE00F288F2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42C01683263036DE00F288F2 /* SnapKit */; };
@@ -24,6 +23,7 @@
 		42E4324326303BB500E97FAB /* AlbumListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4324226303BB500E97FAB /* AlbumListViewModelType.swift */; };
 		42E4324526303CDA00E97FAB /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E4324426303CDA00E97FAB /* AlbumListViewModel.swift */; };
 		42E432472630431700E97FAB /* AlbumListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E432462630431700E97FAB /* AlbumListTableViewCell.swift */; };
+		42E4324C2630505E00E97FAB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 42E4324B2630505E00E97FAB /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,6 @@
 		42C0166D263036A500F288F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42C0166F263036A500F288F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		42C01671263036A500F288F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		42C01674263036A500F288F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42C01676263036A600F288F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42C01679263036A600F288F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42C0167B263036A600F288F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E4324C2630505E00E97FAB /* Kingfisher in Frameworks */,
 				42C016902630373B00F288F2 /* RxRelay in Frameworks */,
 				42C0168C2630373B00F288F2 /* RxSwift in Frameworks */,
 				42C01684263036DE00F288F2 /* SnapKit in Frameworks */,
@@ -83,7 +83,6 @@
 				42C016922630374400F288F2 /* Model */,
 				42C0166D263036A500F288F2 /* AppDelegate.swift */,
 				42C0166F263036A500F288F2 /* SceneDelegate.swift */,
-				42C01673263036A500F288F2 /* Main.storyboard */,
 				42C01676263036A600F288F2 /* Assets.xcassets */,
 				42C01678263036A600F288F2 /* LaunchScreen.storyboard */,
 				42C0167B263036A600F288F2 /* Info.plist */,
@@ -141,6 +140,7 @@
 				42C0168B2630373B00F288F2 /* RxSwift */,
 				42C0168D2630373B00F288F2 /* RxCocoa */,
 				42C0168F2630373B00F288F2 /* RxRelay */,
+				42E4324B2630505E00E97FAB /* Kingfisher */,
 			);
 			productName = MusicList;
 			productReference = 42C0166A263036A500F288F2 /* MusicList.app */;
@@ -173,6 +173,7 @@
 				42C01682263036DE00F288F2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				42C01686263036F900F288F2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				42C0168A2630373B00F288F2 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				42E4324A2630505E00E97FAB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 42C0166B263036A500F288F2 /* Products */;
 			projectDirPath = "";
@@ -190,7 +191,6 @@
 			files = (
 				42C0167A263036A600F288F2 /* LaunchScreen.storyboard in Resources */,
 				42C01677263036A600F288F2 /* Assets.xcassets in Resources */,
-				42C01675263036A500F288F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,14 +216,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		42C01673263036A500F288F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				42C01674263036A500F288F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		42C01678263036A600F288F2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,6 +429,14 @@
 				minimumVersion = 6.1.0;
 			};
 		};
+		42E4324A2630505E00E97FAB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -464,6 +464,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42C0168A2630373B00F288F2 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		42E4324B2630505E00E97FAB /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42E4324A2630505E00E97FAB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

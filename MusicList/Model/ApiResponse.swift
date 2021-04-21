@@ -9,5 +9,5 @@ import Foundation
 
 struct ApiResponse: Decodable {
     let resultCount: Int
-    let result: [Album]
+    let results: [Album]
 }

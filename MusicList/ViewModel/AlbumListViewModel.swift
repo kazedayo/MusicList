@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxRelay
+import Alamofire
 
 class AlbumListViewModel: AlbumListViewModelType, AlbumListViewModelInputs, AlbumListViewModelOutputs {
     var input: AlbumListViewModelInputs { return self }
@@ -17,9 +18,12 @@ class AlbumListViewModel: AlbumListViewModelType, AlbumListViewModelInputs, Albu
     private let albumsRelay = PublishRelay<[Album]>()
     
     func fetchAlbumList() {
-        guard let response = API.request() else { return }
-        listLengthRelay.accept(response.resultCount)
-        albumsRelay.accept(response.result)
+        AF.request(API.url).responseDecodable(of: ApiResponse.self) { [weak self] response in
+            if let response = response.value {
+                self?.listLengthRelay.accept(response.resultCount)
+                self?.albumsRelay.accept(response.results)
+            }
+        }
     }
     
     func addFavorite(id: Int) {
