@@ -11,12 +11,12 @@ import Alamofire
 final class API {
     static let url: String = "https://itunes.apple.com/search?term=jack+johnson&entity=album"
     
-    func request() -> ApiResponse? {
-        var apiResponse: ApiResponse?
+    static func request(completion: @escaping (_ response: ApiResponse) -> Void) {
         AF.request(API.url).responseDecodable(of: ApiResponse.self) {
             response in
-            apiResponse = response.value
+            if let response = response.value {
+                completion(response)
+            }
         }
-        return apiResponse
     }
 }

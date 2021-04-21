@@ -13,9 +13,10 @@ import Kingfisher
 
 class ViewController: UIViewController {
     
-    let viewModel: AlbumListViewModelType
-    let disposeBag = DisposeBag()
-    lazy var tableView = UITableView()
+    private let viewModel: AlbumListViewModelType
+    private let disposeBag = DisposeBag()
+    private lazy var tableView = UITableView()
+    private lazy var showFavouriteButton = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,8 @@ class ViewController: UIViewController {
             make.height.equalTo(view)
             make.width.equalTo(view)
         }
+        showFavouriteButton.image = UIImage(named: "heart")
+        navigationItem.rightBarButtonItem = showFavouriteButton
         setupBinding()
     }
     
@@ -43,6 +46,9 @@ class ViewController: UIViewController {
     }
     
     private func setupBinding() {
+        showFavouriteButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.viewModel.input.toggleFavourite()
+        }).disposed(by: disposeBag)
         viewModel.output.albums.bind(to: tableView.rx.items) { (tableView, row, element) in
             let cell = tableView.dequeueReusableCell(withIdentifier: AlbumListTableViewCell.identifier) as! AlbumListTableViewCell
             let url = URL(string: element.artworkUrl100)
@@ -51,6 +57,9 @@ class ViewController: UIViewController {
             cell.artistNameLabel.text = element.artistName
             return cell
         }.disposed(by: disposeBag)
+        viewModel.output.isShowingFavorites.subscribe(onNext: { [weak self] in
+            self?.navigationItem.title = $0 ? "Favorites" : "Music List"
+        }).disposed(by: disposeBag)
         viewModel.input.fetchAlbumList()
     }
     
