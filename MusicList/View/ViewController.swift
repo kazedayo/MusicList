@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         }
         showFavouriteButton.image = UIImage(named: "heart")
         navigationItem.rightBarButtonItem = showFavouriteButton
+        //Network call + bindings
+        viewModel.input.fetchAlbumList()
         setupBinding()
     }
     
@@ -86,7 +88,6 @@ class ViewController: UIViewController {
             self?.navigationItem.title = $0 ? "Favorites" : "Music List"
             self?.showFavouriteButton.image = UIImage(named: $0 ? "list" : "heart")
         }).disposed(by: disposeBag)
-        viewModel.input.fetchAlbumList()
     }
     
 }

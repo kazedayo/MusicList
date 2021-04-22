@@ -16,16 +16,12 @@ class AlbumListViewModel: AlbumListViewModelType, AlbumListViewModelInputs, Albu
 
     private let albumsRelay = BehaviorRelay<[AlbumListItem]>(value: [])
     private let showFavoriteRelay = BehaviorRelay<Bool>(value: false)
-    private var favouriteAlbumIds: [Int] = []
-    private var albumList: [Album] = []
     
     func fetchAlbumList() {
         API.request() { [weak self] response in
             self?.albumsRelay.accept(response.results.map {
                 return AlbumListItem(album: $0, isFavorite: false)
             })
-            //make a copy for filtering purpose
-            self?.albumList = response.results
         }
     }
     
