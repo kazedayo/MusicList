@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E3672BF2631074C00060256 /* AlbumListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3672BE2631074C00060256 /* AlbumListItem.swift */; };
 		42C0166E263036A500F288F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0166D263036A500F288F2 /* AppDelegate.swift */; };
-		42C01670263036A500F288F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C0166F263036A500F288F2 /* SceneDelegate.swift */; };
 		42C01672263036A500F288F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C01671263036A500F288F2 /* ViewController.swift */; };
 		42C01677263036A600F288F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C01676263036A600F288F2 /* Assets.xcassets */; };
 		42C0167A263036A600F288F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42C01678263036A600F288F2 /* LaunchScreen.storyboard */; };
@@ -27,9 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E3672BE2631074C00060256 /* AlbumListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListItem.swift; sourceTree = "<group>"; };
 		42C0166A263036A500F288F2 /* MusicList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C0166D263036A500F288F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42C0166F263036A500F288F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		42C01671263036A500F288F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		42C01676263036A600F288F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42C01679263036A600F288F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,7 +82,6 @@
 				42C016932630374B00F288F2 /* View */,
 				42C016922630374400F288F2 /* Model */,
 				42C0166D263036A500F288F2 /* AppDelegate.swift */,
-				42C0166F263036A500F288F2 /* SceneDelegate.swift */,
 				42C01676263036A600F288F2 /* Assets.xcassets */,
 				42C01678263036A600F288F2 /* LaunchScreen.storyboard */,
 				42C0167B263036A600F288F2 /* Info.plist */,
@@ -96,6 +95,7 @@
 			children = (
 				42C016952630378200F288F2 /* ApiResponse.swift */,
 				42C01699263037BA00F288F2 /* Album.swift */,
+				1E3672BE2631074C00060256 /* AlbumListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,9 +205,9 @@
 				42C01672263036A500F288F2 /* ViewController.swift in Sources */,
 				42C016962630378200F288F2 /* ApiResponse.swift in Sources */,
 				42C0166E263036A500F288F2 /* AppDelegate.swift in Sources */,
+				1E3672BF2631074C00060256 /* AlbumListItem.swift in Sources */,
 				42E4324526303CDA00E97FAB /* AlbumListViewModel.swift in Sources */,
 				42E432472630431700E97FAB /* AlbumListTableViewCell.swift in Sources */,
-				42C01670263036A500F288F2 /* SceneDelegate.swift in Sources */,
 				42E432412630392E00E97FAB /* API.swift in Sources */,
 				42C0169A263037BA00F288F2 /* Album.swift in Sources */,
 			);
@@ -351,6 +351,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R3W953ED69;
 				INFOPLIST_FILE = MusicList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -370,6 +371,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R3W953ED69;
 				INFOPLIST_FILE = MusicList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

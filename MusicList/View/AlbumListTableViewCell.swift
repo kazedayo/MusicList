@@ -15,6 +15,7 @@ class AlbumListTableViewCell: UITableViewCell {
     lazy var albumArtImageView = UIImageView()
     lazy var albumNameLabel = UILabel()
     lazy var artistNameLabel = UILabel()
+    lazy var favoriteImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,6 +27,7 @@ class AlbumListTableViewCell: UITableViewCell {
     }
     
     private func configure() {
+        selectionStyle = .none
         //album art
         contentView.addSubview(albumArtImageView)
         albumArtImageView.snp.makeConstraints { (make) -> Void in
@@ -37,6 +39,7 @@ class AlbumListTableViewCell: UITableViewCell {
         
         //album name
         albumNameLabel.numberOfLines = 0
+        albumNameLabel.font = .systemFont(ofSize: 18, weight: .semibold)
         contentView.addSubview(albumNameLabel)
         albumNameLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(albumArtImageView)
@@ -46,11 +49,22 @@ class AlbumListTableViewCell: UITableViewCell {
 
         //artist name
         artistNameLabel.numberOfLines = 0
+        artistNameLabel.textColor = .gray
+        artistNameLabel.font = .systemFont(ofSize: 14, weight: .medium)
         contentView.addSubview(artistNameLabel)
         artistNameLabel.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(contentView).offset(-16)
             make.left.equalTo(albumNameLabel)
             make.right.equalTo(-16)
+        }
+
+        //favorite indicator
+        favoriteImageView.image = UIImage(named: "heart")
+        favoriteImageView.tintColor = UIColor.red
+        contentView.addSubview(favoriteImageView)
+        favoriteImageView.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(contentView).offset(-16)
+            make.right.equalTo(contentView).offset(-16)
         }
     }
 

@@ -15,12 +15,11 @@ protocol AlbumListViewModelType {
 
 protocol AlbumListViewModelInputs {
     func fetchAlbumList()
-    func addFavorite(id: Int)
-    func toggleFavourite()
+    func toggleFavourite(id: Int)
+    func toggleShowFavourite()
 }
 
 protocol AlbumListViewModelOutputs {
-    var listLength: Observable<Int> { get }
     var isShowingFavorites: Observable<Bool> { get }
-    var albums: Observable<[Album]> { get }
+    var albums: Observable<[AlbumListItem]> { get }
 }

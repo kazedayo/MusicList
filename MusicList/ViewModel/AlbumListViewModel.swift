@@ -10,39 +10,41 @@ import RxSwift
 import RxRelay
 
 class AlbumListViewModel: AlbumListViewModelType, AlbumListViewModelInputs, AlbumListViewModelOutputs {
+
     var input: AlbumListViewModelInputs { return self }
     var output: AlbumListViewModelOutputs { return self }
-    
-    private let listLengthRelay = PublishRelay<Int>()
-    private let albumsRelay = PublishRelay<[Album]>()
+
+    private let albumsRelay = BehaviorRelay<[AlbumListItem]>(value: [])
     private let showFavoriteRelay = BehaviorRelay<Bool>(value: false)
     private var favouriteAlbumIds: [Int] = []
     private var albumList: [Album] = []
     
     func fetchAlbumList() {
         API.request() { [weak self] response in
-            self?.listLengthRelay.accept(response.resultCount)
-            self?.albumsRelay.accept(response.results)
+            self?.albumsRelay.accept(response.results.map {
+                return AlbumListItem(album: $0, isFavorite: false)
+            })
             //make a copy for filtering purpose
             self?.albumList = response.results
         }
     }
     
-    func addFavorite(id: Int) {
-        favouriteAlbumIds.append(id)
+    func toggleFavourite(id: Int) {
+        var albums = albumsRelay.value
+        if let targetIndex = albums.firstIndex(where: {$0.album.collectionId == id}) {
+            albums[targetIndex].isFavorite = !albums[targetIndex].isFavorite
+            albumsRelay.accept(albums)
+        }
     }
     
-    func toggleFavourite() {
+    func toggleShowFavourite() {
         showFavoriteRelay.accept(!showFavoriteRelay.value)
-        albumsRelay.accept(showFavoriteRelay.value ? albumList.filter({favouriteAlbumIds.contains($0.collectionId)}) : albumList)
     }
-    
-    let listLength: Observable<Int>
-    let albums: Observable<[Album]>
+
+    let albums: Observable<[AlbumListItem]>
     let isShowingFavorites: Observable<Bool>
     
     init() {
-        listLength = listLengthRelay.asObservable()
         albums = albumsRelay.asObservable()
         isShowingFavorites = showFavoriteRelay.asObservable()
     }
